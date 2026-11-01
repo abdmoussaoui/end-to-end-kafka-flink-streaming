@@ -1,4 +1,4 @@
-# Kafka & Flink Streaming Pipeline
+# Kafka & Flink Streaming Pipeline .
 
 I built this project to practice an end-to-end streaming pipeline with Apache Kafka and Apache Flink. The original idea was to collect tweets from the Twitter (X) API, process them as they arrive, and store the results in Elasticsearch and HDFS.
 
@@ -216,5 +216,6 @@ This job is still experimental: the cleaning code includes legacy handling for e
 I would like to add a real X API producer while keeping the same event structure, move configuration out of the scripts, improve the word count job, and add checkpointing and safer HDFS offset handling. A reproducible environment and a dashboard for exploring the results would also make the project easier to run and demonstrate.
 
 No X API credentials are needed for the simulated stream. Local secrets and credentials should stay outside version control.
-#   e n d - t o - e n d - k a f k a - f l i n k - s t r e a m i n g  
+#   e n d - t o - e n d - k a f k a - f l i n k - s t r e a m i n g 
+ 
  
