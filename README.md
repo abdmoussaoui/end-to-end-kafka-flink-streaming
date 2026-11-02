@@ -203,16 +203,8 @@ The word count job cleans tweet text, splits it into words, removes punctuation 
 
 This job is still experimental: the cleaning code includes legacy handling for escaped text and slices the input with `review[2:-1]`, which can truncate normal strings from the current producer. Its Elasticsearch sink also has no primary key declared for updating running counts. These parts need review before relying on the word count output.
 
-## What I learned
 
-- Producing and consuming JSON events with Kafka.
-- Reading a continuous Kafka stream with the PyFlink Table API.
-- Connecting streaming jobs to Elasticsearch.
-- Saving raw events in HDFS as JSON Lines.
-- Working with text cleaning and streaming aggregations.
 
-## Next steps
 
-I would like to add a real X API producer while keeping the same event structure, move configuration out of the scripts, improve the word count job, and add checkpointing and safer HDFS offset handling. A reproducible environment and a dashboard for exploring the results would also make the project easier to run and demonstrate.
 
-No X API credentials are needed for the simulated stream. Local secrets and credentials should stay outside version control.
+
