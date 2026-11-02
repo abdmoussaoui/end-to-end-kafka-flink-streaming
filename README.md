@@ -1,4 +1,4 @@
-# Kafka & Flink Streaming Pipeline .
+# End-to-End Kafka & Flink Streaming Pipeline
 
 I built this project to practice an end-to-end streaming pipeline with Apache Kafka and Apache Flink. The original idea was to collect tweets from the Twitter (X) API, process them as they arrive, and store the results in Elasticsearch and HDFS.
 
@@ -8,15 +8,15 @@ For this version, I used Python and Faker to generate a continuous stream of fak
 
 ```mermaid
 flowchart LR
-    A[Python + Faker\nSimulated tweets] --> B[Kafka\nmy-topic-test]
-    B --> C[Python console consumer]
-    B --> D[PyFlink console job]
-    B --> E[PyFlink indexing job]
-    E --> F[Elasticsearch\ndemo_kafka_flink_streaming]
-    B --> G[PyFlink word count job]
-    G --> H[Elasticsearch\ndemowordcloud]
-    B --> I[Python HDFS consumers]
-    I --> J[HDFS\n/kafka_demo]
+    A["Python + Faker<br/>Simulated tweets"] --> B["Kafka<br/>my-topic-test"]
+    B --> C["Python console consumer"]
+    B --> D["PyFlink console job"]
+    B --> E["PyFlink indexing job"]
+    E --> F["Elasticsearch<br/>demo_kafka_flink_streaming"]
+    B --> G["PyFlink word count job"]
+    G --> H["Elasticsearch<br/>demowordcloud"]
+    B --> I["Python HDFS consumers"]
+    I --> J["HDFS<br/>/kafka_demo"]
 ```
 
 The HDFS consumers read directly from Kafka. They are separate from the Flink jobs, so I can run each part independently.
@@ -104,8 +104,8 @@ The Flink jobs look for connector JARs in a `connectors/` folder at the reposito
 
 ```text
 connectors/
-??? flink-sql-connector-kafka_2.11-1.14.4.jar
-??? flink-sql-connector-elasticsearch7_2.11-1.14.4.jar
+|-- flink-sql-connector-kafka_2.11-1.14.4.jar
+`-- flink-sql-connector-elasticsearch7_2.11-1.14.4.jar
 ```
 
 Create this folder and place your connector JARs there, or set `FLINK_LIB_DIR` to an existing directory containing them. For example, if they are already in your Flink installation:
@@ -216,6 +216,3 @@ This job is still experimental: the cleaning code includes legacy handling for e
 I would like to add a real X API producer while keeping the same event structure, move configuration out of the scripts, improve the word count job, and add checkpointing and safer HDFS offset handling. A reproducible environment and a dashboard for exploring the results would also make the project easier to run and demonstrate.
 
 No X API credentials are needed for the simulated stream. Local secrets and credentials should stay outside version control.
-#   e n d - t o - e n d - k a f k a - f l i n k - s t r e a m i n g 
- 
- 
